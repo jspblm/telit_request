@@ -12,7 +12,7 @@ def telit_post_request(request):
 	t = t_utc.astimezone(pytz.timezone(settings.TIME_ZONE)) # hora de guatemala
 	ts = datetime.datetime.strftime(t, '%Y-%m-%d %H:%M:%S')
 	response = 'Go*d %s'%(ts,)
-	return HttpResponse(response)
+	return HttpResponse(response + " request.POST: " + str(request.POST) + " request.read(): " + request.read())
 
 
 @csrf_exempt
@@ -21,4 +21,4 @@ def gtbiltregistro(request):
 	t = t_utc.astimezone(pytz.timezone(settings.TIME_ZONE)) # hora de guatemala
 	ts = datetime.datetime.strftime(t, '%Y-%m-%d %H:%M:%S')
 	response = 'Go*d %s'%(ts,)
-	return HttpResponse(response)
+	return HttpResponse(response + " request.POST: " + str(request.POST) + " request.read(): " + request.read())
